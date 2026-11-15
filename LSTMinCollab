@@ -1,0 +1,153 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPt7vAg6F2ynfeMl3QbTcsI",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nikitaa-algo/my_repo/blob/main/LSTMinCollab\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "b-18Q6OZ5wbl",
+        "outputId": "e722264f-fe19-4a34-8f5c-610c28762ae6"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Requirement already satisfied: nltk in /usr/local/lib/python3.13/dist-packages (3.9.1)\n",
+            "Requirement already satisfied: click in /usr/local/lib/python3.13/dist-packages (from nltk) (8.5.0)\n",
+            "Requirement already satisfied: joblib in /usr/local/lib/python3.13/dist-packages (from nltk) (1.6.0)\n",
+            "Requirement already satisfied: regex>=2021.8.3 in /usr/local/lib/python3.13/dist-packages (from nltk) (2025.11.3)\n",
+            "Requirement already satisfied: tqdm in /usr/local/lib/python3.13/dist-packages (from nltk) (4.67.3)\n",
+            "Requirement already satisfied: cloudpickle>=3.0 in /usr/local/lib/python3.13/dist-packages (from joblib->nltk) (3.1.2)\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install nltk"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import nltk\n",
+        "nltk.download('gutenberg')\n",
+        "\n",
+        "from nltk.corpus import gutenberg\n",
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "\n",
+        "from tensorflow.keras.preprocessing.text import Tokenizer\n",
+        "from tensorflow.keras.preprocessing.sequence import pad_sequences\n",
+        "\n",
+        "from sklearn.model_selection import train_test_split"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3cSveY2a5039",
+        "outputId": "856a6cc6-4e91-470d-a075-3d4a2e0d1b0e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data] Downloading package gutenberg to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping corpora/gutenberg.zip.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data = gutenberg.raw('shakespeare-hamlet.txt')\n",
+        "\n",
+        "with open('hamlet.txt', 'w') as file:\n",
+        "    file.write(data)\n",
+        "\n",
+        "print(data[:500])"
+      ],
+      "metadata": {
+        "id": "KO7wPACa6fKJ",
+        "outputId": "360a7fc0-1dfd-457b-dbcd-d734e0581ed8",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[The Tragedie of Hamlet by William Shakespeare 1599]\n",
+            "\n",
+            "\n",
+            "Actus Primus. Scoena Prima.\n",
+            "\n",
+            "Enter Barnardo and Francisco two Centinels.\n",
+            "\n",
+            "  Barnardo. Who's there?\n",
+            "  Fran. Nay answer me: Stand & vnfold\n",
+            "your selfe\n",
+            "\n",
+            "   Bar. Long liue the King\n",
+            "\n",
+            "   Fran. Barnardo?\n",
+            "  Bar. He\n",
+            "\n",
+            "   Fran. You come most carefully vpon your houre\n",
+            "\n",
+            "   Bar. 'Tis now strook twelue, get thee to bed Francisco\n",
+            "\n",
+            "   Fran. For this releefe much thankes: 'Tis bitter cold,\n",
+            "And I am sicke at heart\n",
+            "\n",
+            "   Barn. Haue you had quiet Guard?\n",
+            "  Fran. Not\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "_Z7V-PdH6k6x"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
